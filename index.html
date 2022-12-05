@@ -36,8 +36,15 @@
                 <form class="px-md-2">
                   <div class="form-outline mb-4">
                     <label class="form-label" for="name">Name</label>
-                    <input type="text" id="name" class="form-control" required/>
-                    <span id="error-name" style="display: none; color: red;">**please Enter A valid value**</span>
+                    <input
+                      type="text"
+                      id="name"
+                      class="form-control"
+                      required
+                    />
+                    <span id="error-name" style="display: none; color: red"
+                      >**please Enter A valid value**</span
+                    >
                   </div>
                   <div class="form-outline mb-4">
                     <label class="form-label" for="date-of-birth"
@@ -48,7 +55,11 @@
                       id="date-of-birth"
                       class="form-control"
                     />
-                    <span id="error-date-of-birth" style="display: none; color: red;">**please Enter A valid value**</span>
+                    <span
+                      id="error-date-of-birth"
+                      style="display: none; color: red"
+                      >**please Enter A valid value**</span
+                    >
                   </div>
 
                   <div class="row">
@@ -57,19 +68,24 @@
                         >Start Date</label
                       >
                       <input type="date" class="form-control" id="start-date" />
-                      <span id="error-start-date" style="display: none; color: red;">**please Enter A valid value**</span>
-
+                      <span
+                        id="error-start-date"
+                        style="display: none; color: red"
+                        >**please Enter A valid value**</span
+                      >
                     </div>
                     <div class="form-outline datepicker mb-4">
-                      <label for="end-date" class="form-label"
-                        >End Date</label
-                      >
+                      <label for="end-date" class="form-label">End Date</label>
                       <input type="date" class="form-control" id="end-date" />
-                      <span id="error-end-date" style="display: none; color: red;">**please Enter A valid value**</span>
-
+                      <span
+                        id="error-end-date"
+                        style="display: none; color: red"
+                        >**please Enter A valid value**</span
+                      >
                     </div>
                   </div>
 
+       
                   <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
                     <div class="col-md-6">
                       <div class="form-outline">
@@ -82,18 +98,24 @@
                           class="form-control"
                           accept="application/pdf, application/msword"
                         />
-                        <span id="error-file" style="display: none; color: red;">**please Enter A valid value**</span>
 
+                        <span id="error-file" style="display: none; color: red"
+                          >**please Enter A valid value**</span
+                        >
 
                         <p id="file-name"></p>
+                        <p id="down"></p>
                       </div>
                     </div>
                   </div>
+                 
+                    <button id="submit" class="btn btn-success btn-lg mb-1">
+                      Submit
+                    </button>
 
-                  <button id="submit" class="btn btn-success btn-lg mb-1">
-                    Submit
-                  </button>
+                    <a id="link" style="cursor:pointer ;" download>download</a>      
                 </form>
+               
               </div>
             </div>
           </div>

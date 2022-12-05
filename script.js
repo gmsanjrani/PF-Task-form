@@ -19,6 +19,30 @@ file.onchange = function () {
 
 
 
+
+  let input = document.getElementById("file")
+const link = document.getElementById('link');
+let objectURL;
+
+input.addEventListener('change', function () {
+if (objectURL) {
+  // revoke the old object url to avoid using more memory than needed
+  URL.revokeObjectURL(objectURL);  
+}
+
+const file = this.files[0];
+objectURL = URL.createObjectURL(file);
+
+link.download = file.name; // this name is used when the user downloads the file
+  link.href = objectURL;
+  // link.click()
+});
+
+
+
+
+
+
 const submit = document.getElementById("submit");
 
 submit.addEventListener("click", (e) => {
@@ -27,6 +51,9 @@ submit.addEventListener("click", (e) => {
   let dateOfBirth = document.getElementById("date-of-birth").value;
   let startDate = document.getElementById("start-date").value;
   let endDate = document.getElementById("end-date").value;
+
+ 
+
 
   let errorName = document.getElementById("error-name")
   let errorDateOfBirth = document.getElementById("error-date-of-birth")
@@ -79,9 +106,7 @@ submit.addEventListener("click", (e) => {
   if (name && startDate && endDate && dateOfBirth) {
     alert("your Data is Saved to LocalStorage")
   localStorage.setItem("details", JSON.stringify(formData));
- }
-
-
-
+  }
+  
 
 });
