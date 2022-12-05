@@ -1,21 +1,18 @@
-const name = document.getElementById("name");
-const DOB = document.getElementById("date-of-birth");
-const startDate = document.getElementById("start-date").value;
 const endDate = document.getElementById("end-date");
-const file = document.getElementById("file");
-
-
 
 endDate.addEventListener("change", () => {
   const startDate = document.getElementById("start-date").value;
   const endDate = document.getElementById("end-date").value;
-
+  let errorEndDate = document.getElementById("error-end-date")
+  
   if (Date.parse(endDate) < Date.parse(startDate)) {
     alert("End date should be greater than Start date");
+    errorEndDate.style.display="block"
   }
 });
 
 
+const file = document.getElementById("file");
 file.onchange = function () {
   document.getElementById("file-name").textContent = this.files[0].name;
 };
@@ -31,6 +28,40 @@ submit.addEventListener("click", (e) => {
   let startDate = document.getElementById("start-date").value;
   let endDate = document.getElementById("end-date").value;
 
+  let errorName = document.getElementById("error-name")
+  let errorDateOfBirth = document.getElementById("error-date-of-birth")
+  let errorStartDate = document.getElementById("error-start-date")
+  let errorEndDate = document.getElementById("error-end-date")
+
+  if (!name) {
+    errorName.style.display="block"
+  }
+  else {
+    errorName.style.display ="none"
+  }
+
+  if (!dateOfBirth) {
+    errorDateOfBirth.style.display="block"
+  }
+  else {
+    errorDateOfBirth.style.display ="none"
+  }
+
+  if (!startDate) {
+    errorStartDate.style.display="block"
+  }
+  else {
+    errorStartDate.style.display ="none"
+  }
+
+  if (!endDate) {
+    errorEndDate.style.display="block"
+  }
+  else {
+    errorEndDate.style.display ="none"
+  }
+
+
   const formData = {
     name: "",
     dateOfBirth: null,
@@ -45,6 +76,12 @@ submit.addEventListener("click", (e) => {
   formData.endDate = endDate;
   formData.fileName = document.getElementById("file-name").innerText
 
+  if (name && startDate && endDate && dateOfBirth) {
+    alert("your Data is Saved to LocalStorage")
   localStorage.setItem("details", JSON.stringify(formData));
+ }
+
+
+
 
 });
